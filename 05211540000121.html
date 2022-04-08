@@ -1,0 +1,173 @@
+<html>
+<head>
+    <title>.::Khansa Al Faiziy-05211540000121::.</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+</html>
+<style>
+    body {
+        background-color: #F0F0F0;
+    }
+</style>
+
+<body>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <script>
+        const labels = [
+            '2019',
+            '2020',
+            '2021',
+            '2022',
+        ];
+
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Climate Action',
+                    animations: {
+                        y: {
+                            duration: 2000,
+                            delay: 100
+                        }
+                    },
+                    data: [404000,
+                        12000],
+                    borderColor: '#567ACE',
+                    backgroundColor: '#567ACE',
+                    pointHoverBackgroundColor: '#FCF695',
+                    yAxisID: 'y',
+                },
+                {
+                    label: 'The Dark History',
+                    animations: {
+                        y: {
+                            duration: 2500,
+                            delay: 500
+                        }
+                    },
+                    data: [214000,
+                        6400],
+                    borderColor: '#A6DCDE',
+                    backgroundColor: '#A6DCDE',
+                    pointHoverBackgroundColor: '#FCF695',
+                    yAxisID: 'y1',
+                },
+                {
+                    label: 'Cement's Carbon',
+                    animations: {
+                        y: {
+                            duration: 3000,
+                            delay: 1000
+                        }
+                    },
+                    data: [2400,
+                        72],
+                    borderColor: '#EF539D',
+                    backgroundColor: '#EF539D',
+                    pointHoverBackgroundColor: '#FCF695',
+                    yAxisID: 'y1',
+                },
+                {
+                    label: 'The Tragedy of Air Pollution',
+                    animations: {
+                        y: {
+                            duration: 3500,
+                            delay: 1400
+                        }
+                    },
+                    data: [422000,
+                        12000],
+                    borderColor: '#DB706C',
+                    backgroundColor: '#DB706C',
+                    pointHoverBackgroundColor: '#FCF695',
+                    yAxisID: 'y1',
+                }
+            ]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                interaction: {
+                    mode: 'nearest',
+                    intersect: false,
+                },
+                stacked: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'TED Talks ',
+                        color: 'black',
+                    },
+                    subtitle: {
+                        display: true,
+                        text: 'Khansa Al Faiziy-05211540000121',
+                        color: 'black',
+                        font: {
+                            size: 10,
+                        },
+                        padding: {
+                            bottom: 5
+                        }
+                    },
+                    tooltip: {
+                        position: 'nearest'
+                    }
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+
+                        // grid line settings
+                        grid: {
+                            drawOnChartArea: false, // only want the grid lines for one axis to show up
+                        },
+                    },
+                },
+                animations: {
+                    radius: {
+                        duration: 500,
+                        easing: 'linear',
+                        loop: (context) => context.active
+                    },
+                    hoverRadius: 10,
+                    hoverBackgroundColor: 'white',
+                    interaction: {
+                        mode: 'nearest',
+                        intersect: false,
+                        axis: 'x'
+                    },
+                    y: {
+                        easing: 'easeOutBounce',
+                        from: (ctx) => {
+                            if (ctx.type === 'data') {
+                                if (ctx.mode === 'default' && !ctx.dropped) {
+                                    ctx.dropped = true;
+                                    return 0;
+                                }
+                            }
+                        }
+                    }
+                },
+            },
+        };
+    </script>
+    <script>
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+</body>
